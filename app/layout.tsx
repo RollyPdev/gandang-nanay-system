@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Cormorant_Garamond, Geist_Mono, Manrope } from "next/font/google"
 
 import "./globals.css"
@@ -19,6 +20,10 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: "Gandang Nanay 2026",
+}
 
 export default function RootLayout({
   children,
