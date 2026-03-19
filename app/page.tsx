@@ -7,6 +7,8 @@ import { ReactionChart } from "@/components/reaction-chart";
 import { RankingTable } from "@/components/ranking-table";
 import { Button } from "@/components/ui/button";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const candidates = await prisma.candidate.findMany({
     orderBy: { createdAt: "desc" },
