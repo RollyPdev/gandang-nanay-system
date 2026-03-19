@@ -25,7 +25,8 @@ export const candidateSchema = z.object({
   angry: z.coerce.number().min(0),
 });
 
-export type CandidateFormValues = z.infer<typeof candidateSchema>;
+export type CandidateFormInput = z.input<typeof candidateSchema>;
+export type CandidateFormValues = z.output<typeof candidateSchema>;
 
 type CandidateFormProps = {
   candidate?: Candidate;
@@ -53,7 +54,7 @@ export function CandidateForm({
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<CandidateFormValues>({
+  } = useForm<CandidateFormInput, unknown, CandidateFormValues>({
     resolver: zodResolver(candidateSchema),
     defaultValues: candidate
       ? {
