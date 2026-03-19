@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Candidate {
+  id        String   @id @default(cuid())
+  name      String
+  photoUrl  String
+  like      Int      @default(0)
+  love      Int      @default(0)
+  care      Int      @default(0)
+  haha      Int      @default(0)
+  wow       Int      @default(0)
+  sad       Int      @default(0)
+  angry     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
